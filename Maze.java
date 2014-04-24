@@ -1,5 +1,8 @@
 public class Maze
 {
+	/* The maze[][] array is set up so the first number in the array index represents the y axis and the second is the x axis
+	 * for example maze[1][3] would be point (3,1)
+	 */
 	private char[][] maze = new char[0][0];
 	private Point pos;
 	private Point endPos;
@@ -40,14 +43,6 @@ public class Maze
 		}
 		return ret;
     }
-	public Point currentPos()//test method
-	{
-		return pos;
-	}
-	public Point endingPos()//test method
-	{
-		return endPos;
-	}
 	public String toString()
 	{
 		String out = "";
@@ -69,7 +64,7 @@ public class Maze
 			{
 				if(maze[i][j] == 'S')
 				{
-					pos = new Point(i,j);
+					pos = new Point(j,i);
 					i = maze.length;
 					j = maze[0].length;
 				}
@@ -84,11 +79,25 @@ public class Maze
 			{
 				if(maze[i][j] == 'E')
 				{
-					endPos = new Point(i,j);
+					endPos = new Point(j,i);
 					i = maze.length;
 					j = maze[0].length;
 				}
 			}
 		}
+	}
+	public Point currentPos()//test method
+	{
+		return pos;
+	}
+	public Point endingPos()//test method
+	{
+		return endPos;
+	}
+	public void movePoint(int x, int y)//test method
+	{
+		maze[pos.getY()][pos.getX()] = '.';
+		pos.move(x,y);
+		maze[pos.getY()][pos.getX()] = '@';
 	}
 }
