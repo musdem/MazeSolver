@@ -86,6 +86,26 @@ public class Maze
 			}
 		}
 	}
+	public void solveMethod(int method)//selects the solving algorithm
+	{
+		if(method == 1)
+		{
+			aStar();
+		}
+	}
+	public void aStar()//work in progress
+	{
+		
+	}
+	public boolean isIllegal(Point p)//will be private when testing is done
+	{
+		boolean out = false;
+		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#')
+		{
+			out = true;
+		}
+		return out;
+	}
 	public Point currentPos()//test method
 	{
 		return pos;
