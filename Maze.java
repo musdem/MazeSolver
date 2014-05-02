@@ -4,13 +4,15 @@ public class Maze
 	 * for example maze[1][3] would be point (3,1)
 	 */
 	private char[][] maze = new char[0][0];
-	private Point pos;
+	private Rat runner;
+	private Point startPos;
 	private Point endPos;
 	public Maze(String mazeFile)
 	{
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
+		runner = new Rat(startPos, this);
 	}
 	public void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
@@ -64,7 +66,7 @@ public class Maze
 			{
 				if(maze[i][j] == 'S')
 				{
-					pos = new Point(j,i);
+					startPos = new Point(j,i);
 					i = maze.length;
 					j = maze[0].length;
 				}
@@ -90,12 +92,33 @@ public class Maze
 	{
 		if(method == 1)
 		{
-			aStar();
+			wallFollow();
 		}
 	}
-	public void aStar()//work in progress
+	public void wallFollow()//work in progress
 	{
 		
+	}
+	public char findStartingDirection()
+	{
+		char out = 's';
+		if(!isIllegal(new Point(startPos.getX(),startPos.getY()-1)))
+		{
+			out = 'u';
+		}
+		else if(!isIllegal(new Point(startPos.getX()+1,startPos.getY())))
+		{
+			out = 'r';
+		}
+		else if(!isIllegal(new Point(startPos.getX(),startPos.getY()+1)))
+		{
+			out = 'd';
+		}
+		else if(!isIllegal(new Point(startPos.getX()-1,startPos.getY())))
+		{
+			out = 'l';
+		}
+		return out;
 	}
 	public boolean isIllegal(Point p)//will be private when testing is done
 	{
@@ -108,7 +131,7 @@ public class Maze
 	}
 	public Point currentPos()//test method
 	{
-		return pos;
+		return startPos;
 	}
 	public Point endingPos()//test method
 	{
@@ -116,8 +139,8 @@ public class Maze
 	}
 	public void movePoint(int x, int y)//test method
 	{
-		maze[pos.getY()][pos.getX()] = '.';
-		pos.move(x,y);
-		maze[pos.getY()][pos.getX()] = '@';
+		maze[startPos.getY()][startPos.getX()] = '.';
+		startPos.move(x,y);
+		maze[startPos.getY()][startPos.getX()] = '@';
 	}
 }
