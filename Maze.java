@@ -13,8 +13,9 @@ public class Maze
 		findStartingPos();
 		findEndingPos();
 		runner = new Rat(startPos, this);
+		setPos();
 	}
-	public void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
+	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
 		boolean first = true;
 		String fileOutput = TextFileOps.Read(file);
@@ -88,6 +89,10 @@ public class Maze
 			}
 		}
 	}
+	private void setPos()
+	{
+		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '@';
+	}
 	public void solveMethod(int method)//selects the solving algorithm
 	{
 		if(method == 1)
@@ -120,7 +125,7 @@ public class Maze
 		}
 		return out;
 	}
-	public boolean isIllegal(Point p)//will be private when testing is done
+	private boolean isIllegal(Point p)//will be private when testing is done
 	{
 		boolean out = false;
 		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#')
@@ -128,19 +133,5 @@ public class Maze
 			out = true;
 		}
 		return out;
-	}
-	public Point currentPos()//test method
-	{
-		return startPos;
-	}
-	public Point endingPos()//test method
-	{
-		return endPos;
-	}
-	public void movePoint(int x, int y)//test method
-	{
-		maze[startPos.getY()][startPos.getX()] = '.';
-		startPos.move(x,y);
-		maze[startPos.getY()][startPos.getX()] = '@';
 	}
 }

@@ -2,9 +2,11 @@ public class Rat
 {
 	private Point pos;
 	private char direction;
+	private Maze maze;
 	public Rat(Point start, Maze m)
 	{
 		pos = start;
+		maze = m;
 		direction = m.findStartingDirection();
 	}
 	public void turnRight(char newDir)
@@ -63,5 +65,9 @@ public class Rat
 		{
 			pos.move(-1,0);
 		}
+	}
+	public Point currentPos()
+	{
+		return pos;
 	}
 }
