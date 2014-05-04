@@ -70,4 +70,8 @@ public class Rat
 	{
 		return pos;
 	}
+	public char giveDir()
+	{
+		return direction;
+	}
 }

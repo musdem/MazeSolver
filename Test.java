@@ -4,5 +4,6 @@ public class Test
 	{
 		Maze m = new Maze("maze.txt");
 		System.out.println(m);
+		System.out.println(m.returnDir());//should be 'r'
 	}
 }

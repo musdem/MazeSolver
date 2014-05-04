@@ -13,7 +13,6 @@ public class Maze
 		findStartingPos();
 		findEndingPos();
 		runner = new Rat(startPos, this);
-		setPos();
 	}
 	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
@@ -89,8 +88,10 @@ public class Maze
 			}
 		}
 	}
-	private void setPos()
+	private void nextMove()
 	{
+		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '.';
+		runner.travel();
 		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '@';
 	}
 	public void solveMethod(int method)//selects the solving algorithm
@@ -100,7 +101,7 @@ public class Maze
 			wallFollow();
 		}
 	}
-	public void wallFollow()//work in progress
+	private void wallFollow()//work in progress
 	{
 		
 	}
@@ -125,7 +126,7 @@ public class Maze
 		}
 		return out;
 	}
-	private boolean isIllegal(Point p)//will be private when testing is done
+	private boolean isIllegal(Point p)
 	{
 		boolean out = false;
 		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#')
@@ -133,5 +134,9 @@ public class Maze
 			out = true;
 		}
 		return out;
+	}
+	public char returnDir()//testing method
+	{
+		return runner.giveDir();
 	}
 }
