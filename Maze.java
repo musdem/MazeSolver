@@ -107,7 +107,7 @@ public class Maze
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
-		while(!runner.nextPos().equals(endPos))
+		while(!runner.currentPos().equals(endPos))
 		{
 			if(!isIllegal(runner.rightPos()))
 			{
@@ -141,14 +141,11 @@ public class Maze
 				System.out.println(this);
 			}
 		}
-		System.out.println("moving to " + runner.nextPos());
-		move();
-		System.out.println(this);
 		System.out.println("maze solved");
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
-		while(!runner.nextPos().equals(endPos))
+		while(!runner.currentPos().equals(endPos))
 		{
 			if(!isIllegal(runner.leftPos()))
 			{
@@ -182,9 +179,6 @@ public class Maze
 				System.out.println(this);
 			}
 		}
-		System.out.println("moving to " + runner.nextPos());
-		move();
-		System.out.println(this);
 		System.out.println("maze solved");
 	}
 	public char findStartingDirection()
