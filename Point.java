@@ -2,10 +2,10 @@ public class Point
 {
 	private int x;
 	private int y;
-	public Point(int sX, int sY)
+	public Point(int x, int y)
 	{
-		x = sX;
-		y = sY;
+		this.x = x;
+		this.y = y;
 	}
 	public int getX()
 	{
@@ -15,10 +15,10 @@ public class Point
 	{
 		return y;
 	}
-	public void move(int iX, int iY)
+	public void move(int x, int y)
 	{
-		x += iX;
-		y += iY;
+		this.x += x;
+		this.y += y;
 	}
 	public String toString()
 	{
