@@ -88,7 +88,7 @@ public class Maze
 			}
 		}
 	}
-	private void nextMove()
+	private void move()
 	{
 		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '.';
 		runner.travel();
@@ -98,12 +98,94 @@ public class Maze
 	{
 		if(method == 1)
 		{
-			wallFollow();
+			wallRightFollow();
+		}
+		if(method == 2)
+		{
+			wallLeftFollow();
 		}
 	}
-	private void wallFollow()//work in progress
+	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
-		
+		while(!runner.nextPos().equals(endPos))
+		{
+			if(!isIllegal(runner.rightPos()))
+			{
+				System.out.println("turning right");
+				runner.turnRight();
+				System.out.println(this);
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else if(!isIllegal(runner.nextPos()))
+			{
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else if(!isIllegal(runner.leftPos()))
+			{
+				System.out.println("turning left");
+				runner.turnLeft();
+				System.out.println(this);
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else
+			{
+				System.out.println("turning around");
+				runner.turnRight();
+				runner.turnRight();
+				System.out.println(this);
+			}
+		}
+		System.out.println("moving to " + runner.nextPos());
+		move();
+		System.out.println(this);
+		System.out.println("maze solved");
+	}
+	private void wallLeftFollow()//work in progress it will change once I add the GUI
+	{
+		while(!runner.nextPos().equals(endPos))
+		{
+			if(!isIllegal(runner.leftPos()))
+			{
+				System.out.println("turning left");
+				runner.turnLeft();
+				System.out.println(this);
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else if(!isIllegal(runner.nextPos()))
+			{
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else if(!isIllegal(runner.rightPos()))
+			{
+				System.out.println("turning right");
+				runner.turnRight();
+				System.out.println(this);
+				System.out.println("moving to " + runner.nextPos());
+				move();
+				System.out.println(this);
+			}
+			else
+			{
+				System.out.println("turning around");
+				runner.turnRight();
+				runner.turnRight();
+				System.out.println(this);
+			}
+		}
+		System.out.println("moving to " + runner.nextPos());
+		move();
+		System.out.println(this);
+		System.out.println("maze solved");
 	}
 	public char findStartingDirection()
 	{
@@ -134,9 +216,5 @@ public class Maze
 			out = true;
 		}
 		return out;
-	}
-	public char returnDir()//testing method
-	{
-		return runner.giveDir();
 	}
 }

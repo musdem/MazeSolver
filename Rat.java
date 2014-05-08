@@ -9,7 +9,7 @@ public class Rat
 		maze = m;
 		direction = m.findStartingDirection();
 	}
-	public void turnRight(char newDir)
+	public void turnRight()
 	{
 		if(direction == 'u')
 		{
@@ -28,7 +28,7 @@ public class Rat
 			direction = 'u';
 		}
 	}
-	public void turnLeft(char newDir)
+	public void turnLeft()
 	{
 		if(direction == 'u')
 		{
@@ -65,6 +65,69 @@ public class Rat
 		{
 			pos.move(-1,0);
 		}
+	}
+	public Point nextPos()
+	{
+		Point out = new Point();
+		if(direction == 'u')
+		{
+			out = new Point(pos.getX(),pos.getY()-1);
+		}
+		else if(direction == 'r')
+		{
+			out = new Point(pos.getX()+1,pos.getY());
+		}
+		else if(direction == 'd')
+		{
+			out = new Point(pos.getX(),pos.getY()+1);
+		}
+		else if(direction == 'l')
+		{
+			out = new Point(pos.getX()-1,pos.getY());
+		}
+		return out;
+	}
+	public Point rightPos()
+	{
+		Point out = new Point();
+		if(direction == 'u')
+		{
+			out = new Point(pos.getX()+1,pos.getY());
+		}
+		else if(direction == 'r')
+		{
+			out = new Point(pos.getX(),pos.getY()+1);
+		}
+		else if(direction == 'd')
+		{
+			out = new Point(pos.getX()-1,pos.getY());
+		}
+		else if(direction == 'l')
+		{
+			out = new Point(pos.getX(),pos.getY()-1);
+		}
+		return out;
+	}
+	public Point leftPos()
+	{
+		Point out = new Point();
+		if(direction == 'u')
+		{
+			out = new Point(pos.getX()-1,pos.getY());
+		}
+		else if(direction == 'r')
+		{
+			out = new Point(pos.getX(),pos.getY()-1);
+		}
+		else if(direction == 'd')
+		{
+			out = new Point(pos.getX()+1,pos.getY());
+		}
+		else if(direction == 'l')
+		{
+			out = new Point(pos.getX(),pos.getY()+1);
+		}
+		return out;
 	}
 	public Point currentPos()
 	{
