@@ -87,66 +87,51 @@ public class Rat
 	}
 	public Point nextPos()
 	{
-		Point out = new Point();
 		if(direction == 'u')
 		{
-			out = new Point(pos.getX(),pos.getY()-1);
+			return new Point(pos.getX(),pos.getY()-1);
 		}
 		else if(direction == 'r')
 		{
-			out = new Point(pos.getX()+1,pos.getY());
+			return new Point(pos.getX()+1,pos.getY());
 		}
 		else if(direction == 'd')
 		{
-			out = new Point(pos.getX(),pos.getY()+1);
+			return new Point(pos.getX(),pos.getY()+1);
 		}
-		else if(direction == 'l')
-		{
-			out = new Point(pos.getX()-1,pos.getY());
-		}
-		return out;
+		else return new Point(pos.getX()-1,pos.getY());
 	}
 	public Point rightPos()
 	{
-		Point out = new Point();
 		if(direction == 'u')
 		{
-			out = new Point(pos.getX()+1,pos.getY());
+			return new Point(pos.getX()+1,pos.getY());
 		}
 		else if(direction == 'r')
 		{
-			out = new Point(pos.getX(),pos.getY()+1);
+			return new Point(pos.getX(),pos.getY()+1);
 		}
 		else if(direction == 'd')
 		{
-			out = new Point(pos.getX()-1,pos.getY());
+			return new Point(pos.getX()-1,pos.getY());
 		}
-		else if(direction == 'l')
-		{
-			out = new Point(pos.getX(),pos.getY()-1);
-		}
-		return out;
+		else return new Point(pos.getX(),pos.getY()-1);
 	}
 	public Point leftPos()
 	{
-		Point out = new Point();
 		if(direction == 'u')
 		{
-			out = new Point(pos.getX()-1,pos.getY());
+			return new Point(pos.getX()-1,pos.getY());
 		}
 		else if(direction == 'r')
 		{
-			out = new Point(pos.getX(),pos.getY()-1);
+			return new Point(pos.getX(),pos.getY()-1);
 		}
 		else if(direction == 'd')
 		{
-			out = new Point(pos.getX()+1,pos.getY());
+			return new Point(pos.getX()+1,pos.getY());
 		}
-		else if(direction == 'l')
-		{
-			out = new Point(pos.getX(),pos.getY()+1);
-		}
-		return out;
+		else return new Point(pos.getX(),pos.getY()+1);
 	}
 	public Point currentPos()
 	{

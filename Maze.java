@@ -45,6 +45,7 @@ public class Maze
 		}
 		return ret;
     }
+    @Override
 	public String toString()
 	{
 		String out = "";
@@ -181,32 +182,26 @@ public class Maze
 	}
 	public char findStartingDirection()
 	{
-		char out = 's';
 		if(!isIllegal(new Point(startPos.getX(),startPos.getY()-1)))
 		{
-			out = 'u';
+			return 'u';
 		}
 		else if(!isIllegal(new Point(startPos.getX()+1,startPos.getY())))
 		{
-			out = 'r';
+			return 'r';
 		}
 		else if(!isIllegal(new Point(startPos.getX(),startPos.getY()+1)))
 		{
-			out = 'd';
+			return 'd';
 		}
-		else if(!isIllegal(new Point(startPos.getX()-1,startPos.getY())))
-		{
-			out = 'l';
-		}
-		return out;
+		else return 'l';
 	}
 	private boolean isIllegal(Point p)
 	{
-		boolean out = false;
 		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#')
 		{
-			out = true;
+			return true;
 		}
-		return out;
+		else return false;
 	}
 }
