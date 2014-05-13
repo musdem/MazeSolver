@@ -47,6 +47,25 @@ public class Rat
 			direction = 'd';
 		}
 	}
+	public void turnAround()
+	{
+		if(direction == 'u')
+		{
+			direction = 'd';
+		}
+		else if(direction == 'r')
+		{
+			direction = 'l';
+		}
+		else if(direction == 'd')
+		{
+			direction = 'u';
+		}
+		else if(direction == 'l')
+		{
+			direction = 'r';
+		}
+	}
 	public void travel()
 	{
 		if(direction == 'u')

@@ -136,8 +136,7 @@ public class Maze
 			else
 			{
 				System.out.println("turning around");
-				runner.turnRight();
-				runner.turnRight();
+				runner.turnAround();
 				System.out.println(this);
 			}
 		}
@@ -174,8 +173,7 @@ public class Maze
 			else
 			{
 				System.out.println("turning around");
-				runner.turnRight();
-				runner.turnRight();
+				runner.turnAround();
 				System.out.println(this);
 			}
 		}
