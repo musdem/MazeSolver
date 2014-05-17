@@ -12,7 +12,7 @@ public class Maze
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
-		runner = new Rat(startPos, this);
+		runner = new Rat(startPos,findStartingDirection());
 	}
 	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
@@ -180,7 +180,7 @@ public class Maze
 		}
 		System.out.println("maze solved");
 	}
-	public char findStartingDirection()
+	private char findStartingDirection()
 	{
 		if(!isIllegal(new Point(startPos.getX(),startPos.getY()-1)))
 		{

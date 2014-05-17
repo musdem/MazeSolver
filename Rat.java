@@ -2,12 +2,10 @@ public class Rat
 {
 	private Point pos;
 	private char direction;
-	private Maze maze;
-	public Rat(Point start, Maze m)
+	public Rat(Point start, char startingDirection)
 	{
 		pos = start;
-		maze = m;
-		direction = m.findStartingDirection();
+		direction = startingDirection;
 	}
 	public void turnRight()
 	{
