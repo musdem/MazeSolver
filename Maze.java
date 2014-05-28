@@ -7,12 +7,14 @@ public class Maze
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
+	private int numberOfMoves;
 	public Maze(String mazeFile)
 	{
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
 		runner = new Rat(startPos,findStartingDirection());
+		numberOfMoves = 0;
 	}
 	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
@@ -118,12 +120,14 @@ public class Maze
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 2;
 			}
 			else if(!isIllegal(runner.nextPos()))
 			{
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 1;
 			}
 			else if(!isIllegal(runner.leftPos()))
 			{
@@ -133,15 +137,17 @@ public class Maze
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 2;
 			}
 			else
 			{
 				System.out.println("turning around");
 				runner.turnAround();
 				System.out.println(this);
+				numberOfMoves += 1;
 			}
 		}
-		System.out.println("maze solved");
+		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
@@ -155,12 +161,14 @@ public class Maze
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 2;
 			}
 			else if(!isIllegal(runner.nextPos()))
 			{
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 1;
 			}
 			else if(!isIllegal(runner.rightPos()))
 			{
@@ -170,15 +178,17 @@ public class Maze
 				System.out.println("moving to " + runner.nextPos());
 				move();
 				System.out.println(this);
+				numberOfMoves += 2;
 			}
 			else
 			{
 				System.out.println("turning around");
 				runner.turnAround();
 				System.out.println(this);
+				numberOfMoves += 1;
 			}
 		}
-		System.out.println("maze solved");
+		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
 	private char findStartingDirection()
 	{
