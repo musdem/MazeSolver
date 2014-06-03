@@ -3,17 +3,25 @@ public class Maze
 	/* The maze[][] array is set up so the first number in the array index represents the y axis and the second is the x axis
 	 * for example maze[1][3] would be point (3,1)
 	 */
+	private int numberOfMoves;
 	private char[][] maze = new char[0][0];
+	private boolean solvable = true;
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
-	private int numberOfMoves;
 	public Maze(String mazeFile)
 	{
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
-		runner = new Rat(startPos,findStartingDirection());
+		if(solvable)
+		{
+			runner = new Rat(startPos,findStartingDirection());
+		}
+		else
+		{
+			System.out.println("The map has errors and runner can't be initialized.");//will change when gui is ready
+		}
 		numberOfMoves = 0;
 	}
 	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
@@ -75,6 +83,11 @@ public class Maze
 				}
 			}
 		}
+		if (startPos == null)//will change when gui is ready
+		{
+			System.out.println("There is no starting position in the maze.");
+			solvable = false;
+		}
 	}
 	private void findEndingPos()
 	{
@@ -90,6 +103,11 @@ public class Maze
 				}
 			}
 		}
+		if (endPos == null)//will change when gui is ready
+		{
+			System.out.println("There is no ending position in the maze.");
+			solvable = false;
+		}
 	}
 	private void move()
 	{
@@ -99,13 +117,17 @@ public class Maze
 	}
 	public void solveMethod(int method)//selects the solving algorithm
 	{
-		if(method == 1)
+		if(method == 1 && solvable)
 		{
 			wallRightFollow();
 		}
-		if(method == 2)
+		else if(method == 2 && solvable)
 		{
 			wallLeftFollow();
+		}
+		else//will change when gui is ready
+		{
+			System.out.println("Solve method is incorrect or the maze has errors and can't be solved.");
 		}
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
