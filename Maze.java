@@ -130,6 +130,10 @@ public class Maze
 			System.out.println("Solve method is incorrect or the maze has errors and can't be solved.");
 		}
 	}
+	public Point returnSize()
+	{
+		return new Point((maze[0].length - 1),(maze.length - 1));
+	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
 		while(!runner.currentPos().equals(endPos))
