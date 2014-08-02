@@ -69,6 +69,10 @@ public class Maze
 		}
 		return out;
 	}
+	public char[][] rawOut()
+	{
+		return maze;
+	}
 	private void findStartingPos()
 	{
 		for(int i = 0;i < maze.length;i++)
@@ -132,7 +136,7 @@ public class Maze
 	}
 	public Point returnSize()
 	{
-		return new Point((maze[0].length - 1),(maze.length - 1));
+		return new Point((maze[0].length),(maze.length));
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
