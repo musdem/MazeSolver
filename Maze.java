@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Maze
 {
 	/* The maze[][] array is set up so the first number in the array index represents the y axis and the second is the x axis
@@ -9,8 +11,14 @@ public class Maze
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
+	ErrorPanel EP = new ErrorPanel();
+	JFrame ErrorFrame = new JFrame();
 	public Maze(String mazeFile)
 	{
+		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ErrorFrame.add(EP);
+		ErrorFrame.setSize(380,60);
+		ErrorFrame.setTitle("Maze Solver : ERROR");
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
@@ -18,9 +26,10 @@ public class Maze
 		{
 			runner = new Rat(startPos,findStartingDirection());
 		}
-		else
+		else//for displaying error messages
 		{
-			System.out.println("The map has errors and runner can't be initialized.");//will change when gui is ready
+			ErrorFrame.setVisible(true);
+			EP.msg1();
 		}
 		numberOfMoves = 0;
 	}
@@ -87,9 +96,9 @@ public class Maze
 				}
 			}
 		}
-		if (startPos == null)//will change when gui is ready
+		if (startPos == null)//for displaying error messages
 		{
-			System.out.println("There is no starting position in the maze.");
+			EP.msg2();
 			solvable = false;
 		}
 	}
@@ -107,9 +116,9 @@ public class Maze
 				}
 			}
 		}
-		if (endPos == null)//will change when gui is ready
+		if (endPos == null)//for displaying error messages
 		{
-			System.out.println("There is no ending position in the maze.");
+			EP.msg3();
 			solvable = false;
 		}
 	}
@@ -129,9 +138,10 @@ public class Maze
 		{
 			wallLeftFollow();
 		}
-		else//will change when gui is ready
+		else//for displaying error messages
 		{
-			System.out.println("Solve method is incorrect or the maze has errors and can't be solved.");
+			ErrorFrame.setVisible(true);
+			EP.msg4();
 		}
 	}
 	public Point returnSize()
