@@ -11,8 +11,8 @@ public class Maze
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
-	ErrorPanel EP = new ErrorPanel();
-	JFrame ErrorFrame = new JFrame();
+	private ErrorPanel EP = new ErrorPanel();
+	private JFrame ErrorFrame = new JFrame();
 	public Maze(String mazeFile)
 	{
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

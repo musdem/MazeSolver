@@ -2,10 +2,10 @@ import java.awt.event.*;
 import javax.swing.*;
 public class MenuPanel extends JPanel
 {
-	MazeGraphicPanel MGP = new MazeGraphicPanel(new Maze("maze.txt"));
-	MazeCreationPanel MCP = new MazeCreationPanel();
-	JFrame MazeWindow = new JFrame();
-	JFrame MazeCreatorWindow = new JFrame();
+	private MazeGraphicPanel MGP = new MazeGraphicPanel(new Maze("maze.txt"));
+	private MazeCreationPanel MCP = new MazeCreationPanel();
+	private JFrame MazeWindow = new JFrame();
+	private JFrame MazeCreatorWindow = new JFrame();
 	public MenuPanel()
 	{
 		JButton newMap = new JButton("Create a Map");
