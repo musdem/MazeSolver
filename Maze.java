@@ -17,7 +17,7 @@ public class Maze
 	{
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ErrorFrame.add(EP);
-		ErrorFrame.setSize(380,60);
+		ErrorFrame.setSize(380,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
 		fileToArray(mazeFile);
 		findStartingPos();
@@ -124,7 +124,7 @@ public class Maze
 	}
 	private void move()
 	{
-		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '.';
+		maze[runner.currentPos().getY()][runner.currentPos().getX()] = 'P';
 		runner.travel();
 		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '@';
 	}

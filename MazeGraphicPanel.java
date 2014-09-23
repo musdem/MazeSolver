@@ -11,6 +11,13 @@ public class MazeGraphicPanel extends JPanel
 		this.mazeSize = m.returnSize();
 		this.maze = m.rawOut();
 	}
+	public void solve(boolean slv)//this is a testing method for showing a very basic solved maze
+	{
+		if(slv == true)
+		{
+			m.solveMethod(1);
+		}
+	}
 	public void paint(Graphics mazeG)
 	{
 		int height = getHeight();
@@ -41,6 +48,10 @@ public class MazeGraphicPanel extends JPanel
 				else if(maze[i][j] == '@')
 				{
 					mazeG.setColor(Color.BLACK);
+				}
+				else if(maze[i][j] == 'P')
+				{
+					mazeG.setColor(Color.YELLOW);
 				}
 				else
 				{

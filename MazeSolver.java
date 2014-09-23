@@ -7,7 +7,7 @@ public class MazeSolver
         JFrame application = new JFrame();
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         application.add(panel);
-        application.setSize(280,64);
+        application.setSize(280,72);
         application.setTitle("Maze Solver : Menu");
         application.setVisible(true);
 	}

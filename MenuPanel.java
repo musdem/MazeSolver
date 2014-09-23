@@ -18,7 +18,7 @@ public class MenuPanel extends JPanel
 				MazeWindow.add(MGP);
 				MazeCreatorWindow.add(MCP);
 				MazeWindow.setSize(600,600);
-				MazeCreatorWindow.setSize(240,100);
+				MazeCreatorWindow.setSize(380,78);
 				MazeWindow.setTitle("Maze Solver : Maze");
 				MazeCreatorWindow.setTitle("Maze Solver : Maze Creation Tools");
 				MazeWindow.setVisible(true);
@@ -27,9 +27,14 @@ public class MenuPanel extends JPanel
 		});
 		loadMap.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(ActionEvent e)
+			public void actionPerformed(ActionEvent e)//this code is a place holder for what will be here in the future
 			{
-				//will make a loadMapPanel
+				MGP.solve(true);
+				MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				MazeWindow.add(MGP);
+				MazeWindow.setSize(600,600);
+				MazeWindow.setTitle("Maze Solver : Maze");
+				MazeWindow.setVisible(true);
 			}
 		});
 		add(newMap);
