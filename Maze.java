@@ -230,28 +230,19 @@ public class Maze
 		}
 		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
+	/*findStartingDirection will systematically check for a free space around the starting point
+	 * in order to have a possible starting direction
+	 */
 	private char findStartingDirection()
 	{
-		if(!isIllegal(new Point(startPos.getX(),startPos.getY()-1)))
-		{
-			return 'u';
-		}
-		else if(!isIllegal(new Point(startPos.getX()+1,startPos.getY())))
-		{
-			return 'r';
-		}
-		else if(!isIllegal(new Point(startPos.getX(),startPos.getY()+1)))
-		{
-			return 'd';
-		}
+		if(!isIllegal(new Point(startPos.getX(),startPos.getY()-1))) return 'u';
+		else if(!isIllegal(new Point(startPos.getX()+1,startPos.getY()))) return 'r';
+		else if(!isIllegal(new Point(startPos.getX(),startPos.getY()+1))) return 'd';
 		else return 'l';
 	}
 	private boolean isIllegal(Point p)
 	{
-		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#')
-		{
-			return true;
-		}
+		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#') return true;
 		else return false;
 	}
 }

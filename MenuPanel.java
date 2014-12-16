@@ -10,7 +10,7 @@ public class MenuPanel extends JPanel
 	{
 		JButton newMap = new JButton("Create a Map");
 		JButton loadMap = new JButton("Load a Map");
-		newMap.addActionListener(new ActionListener()
+		newMap.addActionListener(new ActionListener()//this will open 2 windows that will allow a user to create a maze that the program will solve
 		{
 			public void actionPerformed(ActionEvent e)
 			{
@@ -25,7 +25,7 @@ public class MenuPanel extends JPanel
 				MazeCreatorWindow.setVisible(true);
 			}
 		});
-		loadMap.addActionListener(new ActionListener()
+		loadMap.addActionListener(new ActionListener()//this will allow a user to open a maze they or someone else has created
 		{
 			public void actionPerformed(ActionEvent e)//this code is a place holder for what will be here in the future
 			{

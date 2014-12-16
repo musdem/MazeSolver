@@ -18,7 +18,7 @@ public class MazeGraphicPanel extends JPanel
 			m.solveMethod(1);
 		}
 	}
-	public void paint(Graphics mazeG)
+	public void paint(Graphics mazeG)//primitave java graphics I will probably change this around to use the 2D libraries
 	{
 		int height = getHeight();
 		int width = getWidth();

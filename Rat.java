@@ -1,5 +1,6 @@
 public class Rat
 {
+	//the "Rat" object is for traversing the maze automatically
 	private Point pos;
 	private char direction;
 	public Rat(Point start, char startingDirection)
@@ -85,50 +86,23 @@ public class Rat
 	}
 	public Point nextPos()
 	{
-		if(direction == 'u')
-		{
-			return new Point(pos.getX(),pos.getY()-1);
-		}
-		else if(direction == 'r')
-		{
-			return new Point(pos.getX()+1,pos.getY());
-		}
-		else if(direction == 'd')
-		{
-			return new Point(pos.getX(),pos.getY()+1);
-		}
+		if(direction == 'u') return new Point(pos.getX(),pos.getY()-1);
+		else if(direction == 'r') return new Point(pos.getX()+1,pos.getY());
+		else if(direction == 'd') return new Point(pos.getX(),pos.getY()+1);
 		else return new Point(pos.getX()-1,pos.getY());
 	}
 	public Point rightPos()
 	{
-		if(direction == 'u')
-		{
-			return new Point(pos.getX()+1,pos.getY());
-		}
-		else if(direction == 'r')
-		{
-			return new Point(pos.getX(),pos.getY()+1);
-		}
-		else if(direction == 'd')
-		{
-			return new Point(pos.getX()-1,pos.getY());
-		}
+		if(direction == 'u') return new Point(pos.getX()+1,pos.getY());
+		else if(direction == 'r') return new Point(pos.getX(),pos.getY()+1);
+		else if(direction == 'd') return new Point(pos.getX()-1,pos.getY());
 		else return new Point(pos.getX(),pos.getY()-1);
 	}
 	public Point leftPos()
 	{
-		if(direction == 'u')
-		{
-			return new Point(pos.getX()-1,pos.getY());
-		}
-		else if(direction == 'r')
-		{
-			return new Point(pos.getX(),pos.getY()-1);
-		}
-		else if(direction == 'd')
-		{
-			return new Point(pos.getX()+1,pos.getY());
-		}
+		if(direction == 'u') return new Point(pos.getX()-1,pos.getY());
+		else if(direction == 'r') return new Point(pos.getX(),pos.getY()-1);
+		else if(direction == 'd') return new Point(pos.getX()+1,pos.getY());
 		else return new Point(pos.getX(),pos.getY()+1);
 	}
 	public Point currentPos()
