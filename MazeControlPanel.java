@@ -1,5 +1,6 @@
 import java.awt.event.*;
 import javax.swing.*;
+
 public class MazeControlPanel extends JPanel
 {
 	public MazeControlPanel()

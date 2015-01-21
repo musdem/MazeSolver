@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+
 public class MazeGraphicPanel extends JPanel
 {
 	private Point mazeSize;

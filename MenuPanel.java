@@ -1,5 +1,6 @@
 import java.awt.event.*;
 import javax.swing.*;
+
 public class MenuPanel extends JPanel
 {
 	private MazeGraphicPanel MGP = new MazeGraphicPanel(new Maze("maze.txt"));

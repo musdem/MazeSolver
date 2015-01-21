@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 public class MazeSolver
 {
 	public static void main(String args[])
