@@ -230,7 +230,7 @@ public class Maze
 		}
 		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
-	/*findStartingDirection will systematically check for a free space around the starting point
+	/* findStartingDirection will systematically check for a free space around the starting point
 	 * in order to have a possible starting direction
 	 */
 	private char findStartingDirection()
@@ -242,7 +242,6 @@ public class Maze
 	}
 	private boolean isIllegal(Point p)
 	{
-		if(p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#') return true;
-		else return false;
+		return (p.getY() >= maze.length || p.getY() < 0 || p.getX() >= maze[0].length || p.getX() < 0 || maze[p.getY()][p.getX()] == '#');
 	}
 }
