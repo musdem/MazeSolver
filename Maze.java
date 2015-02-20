@@ -25,11 +25,11 @@ public class Maze
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
-		if(solvable)
+		try
 		{
 			runner = new Rat(startPos,findStartingDirection());
 		}
-		else//for displaying error messages
+		catch(NullPointerException e)
 		{
 			ErrorFrame.setVisible(true);
 			EP.msg1();
