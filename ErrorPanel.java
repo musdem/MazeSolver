@@ -27,4 +27,9 @@ class ErrorPanel extends JPanel
 		JLabel errorMessage4 = new JLabel("Solve method is incorrect or the maze has errors and can't be solved.");
 		add(errorMessage4);
 	}
+	public void msg5()
+	{
+		JLabel errorMessage5 = new JLabel("File IO exception: Maze.txt not found.");
+		add(errorMessage5);
+	}
 }

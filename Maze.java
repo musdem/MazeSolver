@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Maze
 {
@@ -36,7 +39,22 @@ public class Maze
 	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
 	{
 		boolean first = true;
-		String fileOutput = TextFileOps.Read(file);
+		String fileOutput = "";
+		File mazeFile = new File(file);
+		try
+		{
+			Scanner sc = new Scanner(mazeFile);
+			while(sc.hasNextLine())
+			{
+				fileOutput += sc.nextLine();
+				fileOutput += "\n";
+			}
+			sc.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			EP.msg5();
+		}
 		String[] rows = fileOutput.split("\\n");
 		for(int i=0;i<rows.length;i++)
 		{
