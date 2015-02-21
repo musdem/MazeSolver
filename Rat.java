@@ -61,7 +61,7 @@ public class Rat
 	{
 		return pos;
 	}
-	public char giveDir()
+	public char getDir()
 	{
 		return direction;
 	}

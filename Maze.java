@@ -142,7 +142,7 @@ public class Maze
 	}
 	private void move()
 	{
-		maze[runner.currentPos().getY()][runner.currentPos().getX()] = 'P';//P is a place holder for testing it represents where the 'Rat' has been in the maze
+		maze[runner.currentPos().getY()][runner.currentPos().getX()] = runner.getDir();//the arrows are place holders for testing it represents where the 'Rat' has gone in the maze
 		runner.travel();
 		maze[runner.currentPos().getY()][runner.currentPos().getX()] = '@';
 	}

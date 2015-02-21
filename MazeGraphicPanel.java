@@ -30,35 +30,64 @@ public class MazeGraphicPanel extends JPanel
 		{
 			for(int j = 0;j < maze[0].length;j++)
 			{
-				if(maze[i][j] == '#')
-				{
-					mazeG.setColor(Color.BLUE);
-				}
-				else if(maze[i][j] == '.')
+				if(maze[i][j] == 'l' || maze[i][j] == 'r' || maze[i][j] == 'd' || maze[i][j] == 'u')
 				{
 					mazeG.setColor(Color.WHITE);
-				}
-				else if(maze[i][j] == 'S')
-				{
-					mazeG.setColor(Color.GREEN);
-				}
-				else if(maze[i][j] == 'E')
-				{
-					mazeG.setColor(Color.RED);
-				}
-				else if(maze[i][j] == '@')
-				{
+					mazeG.fillRect(j * sqaureWidth,i * squareHeight,sqaureWidth,squareHeight);
 					mazeG.setColor(Color.BLACK);
-				}
-				else if(maze[i][j] == 'P')
-				{
-					mazeG.setColor(Color.YELLOW);
+					if(maze[i][j] == 'l')
+					{
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth * 4 / 5,i * squareHeight + squareHeight / 2);//arrow body
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 4);//top
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 3 / 4);//bottom
+					}
+					else if(maze[i][j] == 'r')
+					{
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth * 4 / 5,i * squareHeight + squareHeight / 2);//arrow body
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth * 4 / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 4);//top
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth * 4 / 5,i * squareHeight + squareHeight / 2,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 3 / 4);//bottom
+					}
+					else if(maze[i][j] == 'd')
+					{
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 5,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 4 / 5);//arrow body
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 4 / 5,j * sqaureWidth + sqaureWidth / 4,i * squareHeight + squareHeight / 2);//left
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 4 / 5,j * sqaureWidth + sqaureWidth * 3 / 4,i * squareHeight + squareHeight / 2);//right
+					}
+					else
+					{
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 5,j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight * 4 / 5);//arrow body
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 5,j * sqaureWidth + sqaureWidth / 4,i * squareHeight + squareHeight / 2);//left
+						mazeG.drawLine(j * sqaureWidth + sqaureWidth / 2,i * squareHeight + squareHeight / 5,j * sqaureWidth + sqaureWidth * 3 / 4,i * squareHeight + squareHeight / 2);//right
+					}
 				}
 				else
 				{
+					if(maze[i][j] == '#')
+					{
+						mazeG.setColor(Color.BLUE);
+					}
+					else if(maze[i][j] == 'S')
+					{
+						mazeG.setColor(Color.GREEN);
+					}
+					else if(maze[i][j] == 'E')
+					{
+						mazeG.setColor(Color.RED);
+					}
+					else if(maze[i][j] == '@')
+					{
+						mazeG.setColor(Color.BLACK);
+					}
+					else if(maze[i][j] == 'P')
+					{
+						mazeG.setColor(Color.YELLOW);
+					}
+					else
+					{
 					mazeG.setColor(Color.WHITE);
+					}
+					mazeG.fillRect(j * sqaureWidth,i * squareHeight,sqaureWidth,squareHeight);
 				}
-				mazeG.fillRect(j * sqaureWidth,i * squareHeight,sqaureWidth,squareHeight);
 			}
 		}
 	}
