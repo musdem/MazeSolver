@@ -162,9 +162,13 @@ public class Maze
 			EP.msg4();
 		}
 	}
-	public Point returnSize()
+	public Point getSize()
 	{
 		return new Point((maze[0].length),(maze.length));
+	}
+	public int getNumberOfMoves()
+	{
+		return numberOfMoves;
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
@@ -172,40 +176,27 @@ public class Maze
 		{
 			if(!isIllegal(runner.rightPos()))
 			{
-				System.out.println("turning right");
 				runner.turnRight();
-				System.out.println(this);
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 2;
 			}
 			else if(!isIllegal(runner.nextPos()))
 			{
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 1;
 			}
 			else if(!isIllegal(runner.leftPos()))
 			{
-				System.out.println("turning left");
 				runner.turnLeft();
-				System.out.println(this);
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 2;
 			}
 			else
 			{
-				System.out.println("turning around");
 				runner.turnAround();
-				System.out.println(this);
 				numberOfMoves += 1;
 			}
 		}
-		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
@@ -213,40 +204,27 @@ public class Maze
 		{
 			if(!isIllegal(runner.leftPos()))
 			{
-				System.out.println("turning left");
 				runner.turnLeft();
-				System.out.println(this);
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 2;
 			}
 			else if(!isIllegal(runner.nextPos()))
 			{
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 1;
 			}
 			else if(!isIllegal(runner.rightPos()))
 			{
-				System.out.println("turning right");
 				runner.turnRight();
-				System.out.println(this);
-				System.out.println("moving to " + runner.nextPos());
 				move();
-				System.out.println(this);
 				numberOfMoves += 2;
 			}
 			else
 			{
-				System.out.println("turning around");
 				runner.turnAround();
-				System.out.println(this);
 				numberOfMoves += 1;
 			}
 		}
-		System.out.println("maze solved, the number of moves it took to solve it is: " + numberOfMoves);
 	}
 	/* findStartingDirection will systematically check for a free space around the starting point
 	 * in order to have a possible starting direction
