@@ -20,7 +20,7 @@ public class Maze
 	{
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ErrorFrame.add(EP);
-		ErrorFrame.setSize(380,120);
+		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
 		fileToArray(mazeFile);
 		findStartingPos();

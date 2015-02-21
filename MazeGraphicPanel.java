@@ -92,7 +92,7 @@ public class MazeGraphicPanel extends JPanel
 					}
 					else
 					{
-					mazeG.setColor(Color.WHITE);
+						mazeG.setColor(Color.WHITE);
 					}
 					mazeG.fillRect(j * sqaureWidth,i * squareHeight,sqaureWidth,squareHeight);
 				}
