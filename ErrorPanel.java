@@ -32,4 +32,9 @@ class ErrorPanel extends JPanel
 		JLabel errorMessage5 = new JLabel("File IO exception: Maze.txt not found.");
 		add(errorMessage5);
 	}
+	public void msg6()//maze not initilized
+	{
+		JLabel errorMessage6 = new JLabel("Null Pointer Exception: maze no initialized.");
+		add(errorMessage6);
+	}
 }

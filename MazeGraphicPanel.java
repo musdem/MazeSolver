@@ -8,20 +8,23 @@ public class MazeGraphicPanel extends JPanel
 	private char[][] maze;
 	private MessagePanel MP;
 	private JFrame MessageFrame = new JFrame();
-	public MazeGraphicPanel(Maze m)
+	public MazeGraphicPanel()
 	{
-		this.m = m;
-		this.mazeSize = m.getSize();
-		this.maze = m.rawOut();
 		MessageFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		MessageFrame.setSize(460,60);
 		MessageFrame.setTitle("Maze Solver : SOLVED");
 	}
+	public void createMaze(Maze m)
+	{
+		this.m = m;
+		this.mazeSize = m.getSize();
+		this.maze = m.rawOut();
+	}
 	public void solve(boolean slv)//this is a testing method for showing a very basic solved maze
 	{
-		if(slv == true)
+		m.solveMethod(1);
+		if(slv && m.isSolvable())
 		{
-			m.solveMethod(1);
 			MP = new MessagePanel(m.getNumberOfMoves());
 			MessageFrame.add(MP);
 			MessageFrame.setVisible(true);

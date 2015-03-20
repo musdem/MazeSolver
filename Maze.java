@@ -170,6 +170,10 @@ public class Maze
 	{
 		return numberOfMoves;
 	}
+	public boolean isSolvable()
+	{
+		return solvable;
+	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
 		while(!runner.currentPos().equals(endPos))
