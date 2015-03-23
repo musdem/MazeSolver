@@ -20,10 +20,10 @@ public class MazeGraphicPanel extends JPanel
 		this.mazeSize = m.getSize();
 		this.maze = m.rawOut();
 	}
-	public void solve(boolean slv)//this is a testing method for showing a very basic solved maze
+	public void solve()//this is a testing method for showing a very basic solved maze
 	{
 		m.solveMethod(1);
-		if(slv && m.isSolvable())
+		if(m.isSolved())
 		{
 			MP = new MessagePanel(m.getNumberOfMoves());
 			MessageFrame.add(MP);

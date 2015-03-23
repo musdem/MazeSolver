@@ -11,6 +11,7 @@ public class Maze
 	private int numberOfMoves;
 	private char[][] maze = new char[0][0];
 	private boolean solvable = true;
+	private boolean solved = false;
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
@@ -170,9 +171,9 @@ public class Maze
 	{
 		return numberOfMoves;
 	}
-	public boolean isSolvable()
+	public boolean isSolved()
 	{
-		return solvable;
+		return solved;
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
@@ -201,6 +202,7 @@ public class Maze
 				numberOfMoves += 1;
 			}
 		}
+		solved = true;
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
@@ -229,6 +231,7 @@ public class Maze
 				numberOfMoves += 1;
 			}
 		}
+		solved = true;
 	}
 	/* findStartingDirection will systematically check for a free space around the starting point
 	 * in order to have a possible starting direction

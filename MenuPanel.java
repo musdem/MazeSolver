@@ -39,7 +39,7 @@ public class MenuPanel extends JPanel
 			{
 				try
 				{
-					MGP.solve(true);
+					MGP.solve();
 					MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					MazeWindow.add(MGP);
 					MazeWindow.setSize(600,600);
