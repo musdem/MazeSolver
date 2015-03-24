@@ -34,7 +34,7 @@ class ErrorPanel extends JPanel
 	}
 	public void msg6()//maze not initilized
 	{
-		JLabel errorMessage6 = new JLabel("Null Pointer Exception: maze no initialized.");
+		JLabel errorMessage6 = new JLabel("Null Pointer Exception: maze not initialized.");
 		add(errorMessage6);
 	}
 }
