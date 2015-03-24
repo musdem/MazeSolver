@@ -9,6 +9,10 @@ public class Maze
 	 * for example maze[1][3] would be point (3,1)
 	 */
 	private int numberOfMoves;
+	/* 3 is the multiplire I decided on for limiting the number of moves where width*height*3 = maxMoves
+	 * this is because from what I found the max moves per 4 squares is 12 so 12 moves / 4 squares = 3 moves / 1 square
+	 */
+	private int maxMoves = 3;
 	private char[][] maze = new char[0][0];
 	private boolean solvable = true;
 	private boolean solved = false;
@@ -26,6 +30,7 @@ public class Maze
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
+		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
 		try
 		{
 			runner = new Rat(startPos,findStartingDirection());
@@ -177,7 +182,7 @@ public class Maze
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
-		while(!runner.currentPos().equals(endPos))
+		while(!runner.currentPos().equals(endPos) && solvable)
 		{
 			if(!isIllegal(runner.rightPos()))
 			{
@@ -201,12 +206,13 @@ public class Maze
 				runner.turnAround();
 				numberOfMoves += 1;
 			}
+			if(numberOfMoves == maxMoves) solvable = false;
 		}
-		solved = true;
+		if(solvable) solved = true;
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
-		while(!runner.currentPos().equals(endPos))
+		while(!runner.currentPos().equals(endPos) && solvable)
 		{
 			if(!isIllegal(runner.leftPos()))
 			{
@@ -230,8 +236,9 @@ public class Maze
 				runner.turnAround();
 				numberOfMoves += 1;
 			}
+			if(numberOfMoves == maxMoves) solvable = false;
 		}
-		solved = true;
+		if(solvable) solved = true;
 	}
 	/* findStartingDirection will systematically check for a free space around the starting point
 	 * in order to have a possible starting direction

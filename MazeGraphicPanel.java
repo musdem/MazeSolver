@@ -12,7 +12,7 @@ public class MazeGraphicPanel extends JPanel
 	{
 		MessageFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		MessageFrame.setSize(460,60);
-		MessageFrame.setTitle("Maze Solver : SOLVED");
+		MessageFrame.setTitle("Maze Solver : Finished");
 	}
 	public void createMaze(Maze m)
 	{
@@ -25,7 +25,15 @@ public class MazeGraphicPanel extends JPanel
 		m.solveMethod(1);
 		if(m.isSolved())
 		{
-			MP = new MessagePanel(m.getNumberOfMoves());
+			MP = new MessagePanel();
+			MP.msg1(m.getNumberOfMoves());
+			MessageFrame.add(MP);
+			MessageFrame.setVisible(true);
+		}
+		else if(!m.isSolved())
+		{
+			MP = new MessagePanel();
+			MP.msg2(m.getNumberOfMoves());
 			MessageFrame.add(MP);
 			MessageFrame.setVisible(true);
 		}
