@@ -1,9 +1,17 @@
 ########
 ## java
-#######
+########
 
 *.class
 *.jar
+
+###########
+## eclipse
+###########
+
+.project
+.classpath
+.settings
 
 ########
 ## misc

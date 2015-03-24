@@ -9,7 +9,7 @@ public class Maze
 	 * for example maze[1][3] would be point (3,1)
 	 */
 	private int numberOfMoves;
-	/* 3 is the multiplire I decided on for limiting the number of moves where width*height*3 = maxMoves
+	/* 3 is the multiplier I decided on for limiting the number of moves where width*height*3 = maxMoves
 	 * this is because from what I found the max moves per 4 squares is 12 so 12 moves / 4 squares = 3 moves / 1 square
 	 */
 	private int maxMoves = 3;
