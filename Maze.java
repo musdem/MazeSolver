@@ -16,17 +16,43 @@ public class Maze
 	private char[][] maze = new char[0][0];
 	private boolean solvable = true;
 	private boolean solved = false;
+	private String mazeFile = "";
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
 	private ErrorPanel EP = new ErrorPanel();
 	private JFrame ErrorFrame = new JFrame();
-	public Maze(String mazeFile)
+	public Maze()
 	{
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
+	}
+	public Maze(String mazeFile)
+	{
+		this.mazeFile = mazeFile;
+		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ErrorFrame.add(EP);
+		ErrorFrame.setSize(390,120);
+		ErrorFrame.setTitle("Maze Solver : ERROR");
+		fileToArray(mazeFile);
+		findStartingPos();
+		findEndingPos();
+		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
+		try
+		{
+			runner = new Rat(startPos,findStartingDirection());
+		}
+		catch(NullPointerException e)
+		{
+			ErrorFrame.setVisible(true);
+			EP.msg1();
+		}
+		numberOfMoves = 0;
+	}
+	public void initMaze()
+	{
 		fileToArray(mazeFile);
 		findStartingPos();
 		findEndingPos();
@@ -102,10 +128,6 @@ public class Maze
 		}
 		return out;
 	}
-	public char[][] rawOut()
-	{
-		return maze;
-	}
 	private void findStartingPos()
 	{
 		for(int i = 0;i < maze.length;i++)
@@ -168,6 +190,10 @@ public class Maze
 			EP.msg4();
 		}
 	}
+	public char[][] rawOut()
+	{
+		return maze;
+	}
 	public Point getSize()
 	{
 		return new Point((maze[0].length),(maze.length));
@@ -179,6 +205,10 @@ public class Maze
 	public boolean isSolved()
 	{
 		return solved;
+	}
+	public void setMazeFile(String mazeFile)
+	{
+		this.mazeFile = mazeFile;
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
