@@ -16,7 +16,7 @@ public class Maze
 	private char[][] maze = new char[0][0];
 	private boolean solvable = true;
 	private boolean solved = false;
-	private String mazeFile = "";
+	private String mazeFileName = "";
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
@@ -29,14 +29,14 @@ public class Maze
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
 	}
-	public Maze(String mazeFile)
+	public Maze(String mazeFileName)
 	{
-		this.mazeFile = mazeFile;
+		this.mazeFileName = mazeFileName;
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
-		fileToArray(mazeFile);
+		fileToArray();
 		findStartingPos();
 		findEndingPos();
 		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
@@ -53,7 +53,7 @@ public class Maze
 	}
 	public void initMaze()
 	{
-		fileToArray(mazeFile);
+		fileToArray();
 		findStartingPos();
 		findEndingPos();
 		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
@@ -68,11 +68,11 @@ public class Maze
 		}
 		numberOfMoves = 0;
 	}
-	private void fileToArray(String file)//this reads the maze file and then changes it to type char[][]
+	private void fileToArray()//this reads the maze file and then changes it to type char[][]
 	{
 		boolean first = true;
 		String fileOutput = "";
-		File mazeFile = new File(file);
+		File mazeFile = new File(mazeFileName);
 		try
 		{
 			Scanner sc = new Scanner(mazeFile);
@@ -104,7 +104,7 @@ public class Maze
 	}
 	private static char[][] arraySizeIncreaser(char[][] array, int newArrayX, int newArrayY)//increases an arrays index size
 	{
-		char [][] ret = new char[newArrayX][newArrayY];   
+		char [][] ret = new char[newArrayX][newArrayY];
         for (int x=0;x<array.length;x++)
         {
 			for (int y=0;y<array[0].length;y++)
@@ -206,9 +206,9 @@ public class Maze
 	{
 		return solved;
 	}
-	public void setMazeFile(String mazeFile)
+	public void setMazeFile(String mazeFileName)
 	{
-		this.mazeFile = mazeFile;
+		this.mazeFileName = mazeFileName;
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
