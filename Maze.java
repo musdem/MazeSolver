@@ -22,7 +22,7 @@ public class Maze
 	private Point endPos;
 	private ErrorPanel EP = new ErrorPanel();
 	private JFrame ErrorFrame = new JFrame();
-	public Maze()
+	public Maze()//needs to change for maze editing later
 	{
 		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ErrorFrame.add(EP);
@@ -36,12 +36,11 @@ public class Maze
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
-		fileToArray();
-		findStartingPos();
-		findEndingPos();
-		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
 		try
 		{
+			fileToArray();
+			findStartingPos();
+			findEndingPos();
 			runner = new Rat(startPos,findStartingDirection());
 		}
 		catch(NullPointerException e)
@@ -49,16 +48,16 @@ public class Maze
 			ErrorFrame.setVisible(true);
 			EP.msg1();
 		}
+		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
 		numberOfMoves = 0;
 	}
 	public void initMaze()
 	{
-		fileToArray();
-		findStartingPos();
-		findEndingPos();
-		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
 		try
 		{
+			fileToArray();
+			findStartingPos();
+			findEndingPos();
 			runner = new Rat(startPos,findStartingDirection());
 		}
 		catch(NullPointerException e)
@@ -66,6 +65,7 @@ public class Maze
 			ErrorFrame.setVisible(true);
 			EP.msg1();
 		}
+		maxMoves *= maze.length * maze[0].length;//this is assuming mazes will be rectangular in shape
 		numberOfMoves = 0;
 	}
 	private void fileToArray()//this reads the maze file and then changes it to type char[][]
