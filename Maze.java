@@ -125,8 +125,7 @@ public class Maze
 				if(maze[i][j] == 'S')
 				{
 					startPos = new Point(j,i);
-					i = maze.length;
-					j = maze[0].length;
+					break;
 				}
 			}
 		}
@@ -145,8 +144,7 @@ public class Maze
 				if(maze[i][j] == 'E')
 				{
 					endPos = new Point(j,i);
-					i = maze.length;
-					j = maze[0].length;
+					break;
 				}
 			}
 		}
@@ -226,7 +224,7 @@ public class Maze
 			}
 			if(numberOfMoves == maxMoves) solvable = false;
 		}
-		if(solvable) solved = true;
+		solved = solvable;
 	}
 	private void wallLeftFollow()//work in progress it will change once I add the GUI
 	{
@@ -256,7 +254,7 @@ public class Maze
 			}
 			if(numberOfMoves == maxMoves) solvable = false;
 		}
-		if(solvable) solved = true;
+		solved = solvable;
 	}
 	/* findStartingDirection will systematically check for a free space around the starting point
 	 * in order to have a possible starting direction
