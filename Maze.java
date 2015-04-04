@@ -13,7 +13,7 @@ public class Maze
 	 * this is because from what I found the max moves per 4 squares is 12 so 12 moves / 4 squares = 3 moves / 1 square
 	 */
 	private int maxMoves = 3;
-	private char[][] maze = new char[0][0];
+	private char[][] maze;
 	private boolean solvable = true;
 	private boolean solved = false;
 	private String mazeFileName = "";
@@ -95,25 +95,13 @@ public class Maze
 			{
 				if(first==true)
 				{
-					maze = arraySizeIncreaser(maze,rows.length,columns.length);
+					maze = new char[rows.length][columns.length];
 					first = false;
 				}
 				maze[i][j] = columns[j];
 			}
 		}
 	}
-	private static char[][] arraySizeIncreaser(char[][] array, int newArrayX, int newArrayY)//increases an arrays index size
-	{
-		char [][] ret = new char[newArrayX][newArrayY];
-        for (int x=0;x<array.length;x++)
-        {
-			for (int y=0;y<array[0].length;y++)
-			{
-				ret[x][y] = array[x][y];
-			}
-		}
-		return ret;
-    }
     @Override
 	public String toString()
 	{
