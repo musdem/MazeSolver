@@ -24,7 +24,7 @@ public class Maze
 	private JFrame ErrorFrame = new JFrame();
 	public Maze()//needs to change for maze editing later
 	{
-		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ErrorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
@@ -32,7 +32,7 @@ public class Maze
 	public Maze(String mazeFileName)
 	{
 		this.mazeFileName = mazeFileName;
-		ErrorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ErrorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
 		ErrorFrame.setTitle("Maze Solver : ERROR");
