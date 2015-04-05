@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 
 public class MessagePanel extends JPanel
