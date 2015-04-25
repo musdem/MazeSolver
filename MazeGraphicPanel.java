@@ -40,10 +40,8 @@ public class MazeGraphicPanel extends JPanel
 	}
 	public void paint(Graphics mazeG)//primitave java graphics I will probably change this around to use the 2D libraries
 	{
-		int height = getHeight();
-		int width = getWidth();
-		int squareHeight = height / mazeSize.getY();
-		int sqaureWidth = width / mazeSize.getX();
+		int squareHeight = getHeight() / mazeSize.getY();
+		int sqaureWidth = getWidth() / mazeSize.getX();
 		super.paint(mazeG);
 		for(int i = 0;i < maze.length;i++)
 		{
