@@ -13,6 +13,7 @@ public class MenuPanel extends JPanel
 	{
 		JButton newMap = new JButton("Create a Map");
 		JButton loadMap = new JButton("Load a Map");
+		JButton solveMap = new JButton("Solve Maze");
 		ErrorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
@@ -21,7 +22,7 @@ public class MenuPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				MGP.createMaze(new Maze("maze.txt"));
+				MGP.createMaze(new Maze());//this will be nested in a maze size picker
 				MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				MazeWindow.add(MGP);
 				MazeCreatorWindow.add(MCP);
@@ -34,6 +35,22 @@ public class MenuPanel extends JPanel
 			}
 		});
 		loadMap.addActionListener(new ActionListener()//this will allow a user to open a maze they or someone else has created
+		{
+			public void actionPerformed(ActionEvent e)//this code is a place holder for what will be here in the future
+			{
+				MGP.loadMaze(new Maze("maze.txt"));
+				MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				MazeWindow.add(MGP);
+				MazeCreatorWindow.add(MCP);
+				MazeWindow.setSize(600,600);
+				MazeCreatorWindow.setSize(380,78);
+				MazeWindow.setTitle("Maze Solver : Maze");
+				MazeCreatorWindow.setTitle("Maze Solver : Maze Creation Tools");
+				MazeWindow.setVisible(true);
+				MazeCreatorWindow.setVisible(true);
+			}
+		});
+		solveMap.addActionListener(new ActionListener()//this will allow a user to solve a loaded maze they or someone else has created
 		{
 			public void actionPerformed(ActionEvent e)//this code is a place holder for what will be here in the future
 			{
@@ -55,5 +72,6 @@ public class MenuPanel extends JPanel
 		});
 		add(newMap);
 		add(loadMap);
+		add(solveMap);
 	}
 }

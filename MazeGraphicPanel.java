@@ -17,6 +17,13 @@ public class MazeGraphicPanel extends JPanel
 	public void createMaze(Maze m)
 	{
 		this.m = m;
+		m.clearMaze(new Point(20,20));
+		this.mazeSize = m.getSize();
+		this.maze = m.rawOut();
+	}
+	public void loadMaze(Maze m)
+	{
+		this.m = m;
 		this.mazeSize = m.getSize();
 		this.maze = m.rawOut();
 	}

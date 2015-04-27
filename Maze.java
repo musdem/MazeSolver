@@ -102,6 +102,18 @@ public class Maze
 			}
 		}
 	}
+	private void arrayToFile()//TODO make it write to file
+	{
+		String fileInput = "";
+		for(int i = 0;i<maze.length;i++)
+		{
+			for(int j = 0;j<maze[i].length;j++)
+			{
+				fileInput += maze[i][j];
+			}
+			fileInput += "\n";
+		}
+	}
     @Override
 	public String toString()
 	{
@@ -195,6 +207,22 @@ public class Maze
 	public void setMazeFile(String mazeFileName)
 	{
 		this.mazeFileName = mazeFileName;
+	}
+	public void saveMaze(char[][] maze)
+	{
+		this.maze = maze;
+		arrayToFile();
+	}
+	public void clearMaze(Point size)
+	{
+		maze = new char[size.getY()][size.getX()];
+		for(int i = 0;i<size.getY();i++)
+		{
+			for(int j = 0;j<size.getX();j++)
+			{
+				maze[i][j] = '#';
+			}
+		}
 	}
 	private void wallRightFollow()//work in progress it will change once I add the GUI
 	{
