@@ -22,7 +22,7 @@ public class MenuPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				MGP.createMaze(new Maze());//this will be nested in a maze size picker
+				MGP.createMaze(20, 20, new Maze());//this will be nested in a maze size picker
 				MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				MazeWindow.add(MGP);
 				MazeCreatorWindow.add(MCP);
