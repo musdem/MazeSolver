@@ -37,4 +37,9 @@ class ErrorPanel extends JPanel
 		JLabel errorMessage6 = new JLabel("Null Pointer Exception: maze not initialized.");
 		add(errorMessage6);
 	}
+	public void msg7()//maze is lopsided and caused an array out of bound exception
+	{
+		JLabel errorMessage7 = new JLabel("Maze array index out of bound exception; maze is lopsided.");
+		add(errorMessage7);
+	}
 }

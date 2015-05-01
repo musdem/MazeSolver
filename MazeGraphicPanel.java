@@ -14,10 +14,9 @@ public class MazeGraphicPanel extends JPanel
 		MessageFrame.setSize(460,60);
 		MessageFrame.setTitle("Maze Solver : Finished");
 	}
-	public void createMaze(int x, int y, Maze m)
+	public void createMaze(Maze m)
 	{
 		this.m = m;
-		m.clearMaze(new Point(x,y));
 		this.mazeSize = m.getSize();
 		this.maze = m.rawOut();
 	}

@@ -22,8 +22,9 @@ public class Maze
 	private Point endPos;
 	private ErrorPanel EP = new ErrorPanel();
 	private JFrame ErrorFrame = new JFrame();
-	public Maze()//needs to change for maze editing later
+	public Maze(int x, int y)//needs to change for maze editing later
 	{
+		clearMaze(x,y);
 		ErrorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ErrorFrame.add(EP);
 		ErrorFrame.setSize(390,120);
@@ -88,18 +89,26 @@ public class Maze
 			EP.msg5();
 		}
 		String[] rows = fileOutput.split("\\n");
-		for(int i=0;i<rows.length;i++)
+		try
 		{
-			char [] columns = rows[i].toCharArray();
-			for(int j=0;j<columns.length;j++)
+			for(int i=0;i<rows.length;i++)
 			{
-				if(first==true)
+				char [] columns = rows[i].toCharArray();
+				for(int j=0;j<columns.length;j++)
 				{
-					maze = new char[rows.length][columns.length];
-					first = false;
+					if(first==true)
+					{
+						maze = new char[rows.length][columns.length];
+						first = false;
+					}
+					maze[i][j] = columns[j];
 				}
-				maze[i][j] = columns[j];
 			}
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			ErrorFrame.setVisible(true);
+			EP.msg7();
 		}
 	}
 	private void arrayToFile()//TODO make it write to file
@@ -213,12 +222,12 @@ public class Maze
 		this.maze = maze;
 		arrayToFile();
 	}
-	public void clearMaze(Point size)
+	public void clearMaze(int x, int y)
 	{
-		maze = new char[size.getY()][size.getX()];
-		for(int i = 0;i<size.getY();i++)
+		maze = new char[y][x];
+		for(int i = 0;i<y;i++)
 		{
-			for(int j = 0;j<size.getX();j++)
+			for(int j = 0;j<x;j++)
 			{
 				maze[i][j] = '#';
 			}
