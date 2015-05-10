@@ -38,7 +38,7 @@ public class MenuPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)//this code is a place holder for what will be here in the future
 			{
-				MGP.loadMaze(new Maze("maze.txt"));
+				MGP.createMaze(new Maze("maze.txt"));
 				MazeWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				MazeWindow.add(MGP);
 				MazeCreatorWindow.add(MCP);

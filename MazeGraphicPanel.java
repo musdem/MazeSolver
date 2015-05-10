@@ -20,12 +20,6 @@ public class MazeGraphicPanel extends JPanel
 		this.mazeSize = m.getSize();
 		this.maze = m.rawOut();
 	}
-	public void loadMaze(Maze m)
-	{
-		this.m = m;
-		this.mazeSize = m.getSize();
-		this.maze = m.rawOut();
-	}
 	public void solve()//this is a testing method for showing a very basic solved maze
 	{
 		m.solveMethod(1);
