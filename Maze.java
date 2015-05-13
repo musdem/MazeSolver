@@ -96,7 +96,7 @@ public class Maze
 				char [] columns = rows[i].toCharArray();
 				for(int j=0;j<columns.length;j++)
 				{
-					if(first==true)
+					if(first)
 					{
 						maze = new char[rows.length][columns.length];
 						first = false;
