@@ -13,28 +13,28 @@ public class MazeCreationPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make wall creation
+				//TODO make wall creation
 			}
 		});
 		hallCreate.addActionListener(new ActionListener()//this will remove any tiles and just create blank spaces in the maze
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make hall creation
+				//TODO make hall creation
 			}
 		});
 		startCreate.addActionListener(new ActionListener()//this will place the start tile and remove any other start tiles on the map
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make start location creation
+				//TODO make start location creation
 			}
 		});
 		endCreate.addActionListener(new ActionListener()//this will place the end tile and remove any other end tiles on the map
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make end location creation
+				//TODO make end location creation
 			}
 		});
 		add(wallCreate);

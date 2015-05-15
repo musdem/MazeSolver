@@ -30,7 +30,7 @@ public class MazeGraphicPanel extends JPanel
 			MessageFrame.add(MP);
 			MessageFrame.setVisible(true);
 		}
-		else if(!m.isSolved())
+		else
 		{
 			MP = new MessagePanel();
 			MP.msg2(m.getNumberOfMoves());

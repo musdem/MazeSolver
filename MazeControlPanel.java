@@ -11,14 +11,14 @@ public class MazeControlPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make savePanel
+				//TODO make savePanel
 			}
 		});
 		solve.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				//will make solvePanel
+				//TODO make solvePanel
 			}
 		});
 		add(save);
