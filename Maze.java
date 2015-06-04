@@ -17,6 +17,7 @@ public class Maze
 	private boolean solvable = true;
 	private boolean solved = false;
 	private String mazeFileName = "";
+	private String mazeString;
 	private Rat runner;
 	private Point startPos;
 	private Point endPos;
@@ -72,15 +73,15 @@ public class Maze
 	private void fileToArray()//this reads the maze file and then changes it to type char[][]
 	{
 		boolean first = true;
-		String fileOutput = "";
+		mazeString = "";
 		File mazeFile = new File(mazeFileName);
 		try
 		{
 			Scanner sc = new Scanner(mazeFile);
 			while(sc.hasNextLine())
 			{
-				fileOutput += sc.nextLine();
-				fileOutput += "\n";
+				mazeString += sc.nextLine();
+				mazeString += "\n";
 			}
 			sc.close();
 		}
@@ -88,7 +89,7 @@ public class Maze
 		{
 			EP.msg5();
 		}
-		String[] rows = fileOutput.split("\\n");
+		String[] rows = mazeString.split("\\n");
 		try
 		{
 			for(int i=0;i<rows.length;i++)
@@ -126,16 +127,7 @@ public class Maze
     @Override
 	public String toString()
 	{
-		String out = "";
-		for(int i = 0;i < maze.length;i++)
-		{
-			for(int j = 0;j < maze[0].length;j++)
-			{
-				out += maze[i][j];
-			}
-			out += "\n";
-		}
-		return out;
+		return mazeString;
 	}
 	private void findStartingPos()
 	{
